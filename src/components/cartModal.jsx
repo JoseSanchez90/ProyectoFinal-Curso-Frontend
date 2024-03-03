@@ -52,13 +52,13 @@ function CartModal() {
         <span className="text-right flex-grow mr-1">${total.toFixed(2)}</span>
       </div>
       <div>
-        <button onClick={removeCart}  className="bg-red-600 text-white w-full font-bold flex flex-row justify-center items-center gap-2">
+        <button onClick={removeCart}  className="bg-red-600 text-white w-full font-bold flex flex-row justify-center items-center gap-2 py-1">
           <img src={MyIcon} alt={MyIcon} width="20" height="20"/>
           Vaciar carrito
         </button>
       </div>
       <div>
-        <Link to="/mis-pedidos" className="bg-lime-600  text-white w-full font-bold flex flex-row justify-center items-center gap-2 rounded-b-xl">
+        <Link to="/mis-pedidos" className="bg-lime-600  text-white w-full font-bold flex flex-row justify-center items-center gap-2 rounded-b-xl py-1">
           <img src={Buy} alt={Buy} width="20" height="20"/>
           Ir a pagar
         </Link>

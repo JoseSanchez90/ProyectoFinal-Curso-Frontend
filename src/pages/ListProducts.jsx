@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCart } from '../components/cartContext';
 import { FaTrashAlt, FaPlus, FaMinus } from 'react-icons/fa'; 
-import {Container} from '../components/Container'
+import Container from '../components/Container'
 
 
 function ListProducts({ products }) {
