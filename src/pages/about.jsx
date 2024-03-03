@@ -1,4 +1,4 @@
-
+import Image from '../assets/josesanchez.jpg'
 
 const About = () => {
 
@@ -13,7 +13,7 @@ const About = () => {
     <div className="flex flex-wrap -m-4 mt-32 mb-28">
       <div className="p-4 lg:w-1/2">
         <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://scontent.flim1-1.fna.fbcdn.net/v/t39.30808-6/346847838_925435798752637_5545867011019836602_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeFIf0vJqJLylpVi5RqX0GHVx4ZTkYxn7VrHhlORjGftWipLZTjKeHsbVIkE6GNpOzOItLmVQaqXPxM1MExTHbAV&_nc_ohc=u3XqwGzIQ64AX9-p598&_nc_ht=scontent.flim1-1.fna&oh=00_AfDAq1-zvqIpcDXqV-08DF-v4ouq8euBdZojRQi_iQSz9w&oe=65E2EBEF" />
+          <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={Image} />
           <div className="flex-grow sm:pl-8">
             <h2 className="title-font font-medium text-lg text-white">Jose Sanchez</h2>
             <h3 className="text-gray-500 mb-3">Frontend Developer</h3>

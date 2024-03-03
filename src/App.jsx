@@ -13,7 +13,7 @@ import { CartProvider } from './components/cartContext'
 import ProductView from './pages/productView'
 import SignIn from './components/signin'
 import SignUp from './components/signup'
-
+import Checkout from './components/checkout'
 
 function App() {
 
@@ -35,6 +35,9 @@ function App() {
             <Route path="/ingresar" element={<SignIn></SignIn>}></Route>
             <Route path="/registro" element={<SignUp></SignUp>}></Route>
             <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
+            <Route path="/mis-pedidos" element={<Checkout></Checkout>}></Route>
+
+
           </Routes>
         
         </Layaut>
