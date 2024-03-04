@@ -41,10 +41,8 @@ function Navbar() {
       <NavLink to="/productos" className={({isActive}) => isActive?activeLink:btnLink}>Productos</NavLink>
       <NavLink to="/contacto" className={({isActive}) => isActive?activeLink:btnLink}>Contacto</NavLink>
       <NavLink to="/nosotros" className={({isActive}) => isActive?activeLink:btnLink}>Nosotros</NavLink>
-      
-    </nav>
 
-        <div className="flex justify-center md:block">
+      <div className="flex justify-center md:block">
           <button onClick={() => setIsCartModalVisible(!isCartModalVisible)} className="relative text-white transition-colors duration-300 transform dark:text-gray-200 hover:text-green-500 dark:hover:text-gray-300 flex" href="#">
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,38 +51,42 @@ function Navbar() {
           </button>
           {isCartModalVisible && <CartModal />}
         </div>
-
-        <NavLink to="/admin" className={({isActive}) => isActive?btnBoard:btnDash}>DASHBOARD</NavLink>
+      
+    </nav>
+     
+        {state?.email && (
+          <NavLink to="/admin" className={({isActive}) => isActive?btnBoard:btnDash}>DASHBOARD</NavLink>
+        )}
 
       {
         state?.email ? (
           <div>
 
-          <button className=" inline-flex items-center mr-4 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-500 text-base mt-4 md:mt-0 rounded-xl right-10 font-bold">
-          <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" className="w-7 h-7 ml-0 pr-2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#ffffff" stroke-width="1.5"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-              {state?.email}
-          </button>
-  
-          <button className=" inline-flex items-center mr-4 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-500 text-base mt-4 md:mt-0 rounded-xl right-10 font-bold" onClick={onLogout}>
-          <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" className="w-7 h-7 ml-0 pr-2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M4 18h2v2h12V4H6v2H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3zm2-7h7v2H6v3l-5-4 5-4v3z"></path> </g> </g></svg>
-              Desconectar
-          </button>
+            <button className=" inline-flex items-center mr-4 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-500 text-base mt-4 md:mt-0 rounded-xl right-10 font-bold">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" className="w-7 h-7 ml-0 pr-2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#ffffff" stroke-width="1.5"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                {state?.email}
+            </button>
+    
+            <button className=" inline-flex items-center mr-4 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-500 text-base mt-4 md:mt-0 rounded-xl right-10 font-bold" onClick={onLogout}>
+            <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" className="w-7 h-7 ml-0 pr-2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M4 18h2v2h12V4H6v2H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3zm2-7h7v2H6v3l-5-4 5-4v3z"></path> </g> </g></svg>
+                Desconectar
+            </button>
   
         </div>
         ) : (
           <div className="relative">
 
-          <button onClick={() => setShowOptions(!showOptions)} className=" inline-flex items-center mr-4 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-500 text-base mt-4 md:mt-0 rounded-xl right-10 font-bold">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" className="w-7 h-7 ml-0 pr-2" viewBox="0 -1 30 30">
-          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-              Mi cuenta
-          </button>
+            <button onClick={() => setShowOptions(!showOptions)} className=" inline-flex items-center mr-4 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-500 text-base mt-4 md:mt-0 rounded-xl right-10 font-bold">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" className="w-7 h-7 ml-0 pr-2" viewBox="0 -1 30 30">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+                Mi cuenta
+            </button>
 
-            {showOptions && <AccountOptions onClose={(SignUp) => {
-            setShowOptions(false)
-            }} />}
+              {showOptions && <AccountOptions onClose={(SignUp) => {
+              setShowOptions(false)
+              }} />}
 
           </div>
         )

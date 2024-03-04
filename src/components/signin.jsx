@@ -17,9 +17,11 @@ function SignIn() {
 
         const User = JSON.parse(localStorage.getItem('Users')) || []
         const validUser = User.find(user => user.email === email && user.password === password)
+        
         if(!validUser){
             return alert('Usuario o contraseña incorrecto')
         }
+
         alert('Bienvenido ' + validUser.name)
 
         navigate('/productos', {
