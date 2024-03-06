@@ -33,10 +33,10 @@ function CartModal() {
               <span className="text-black font-bold">{item.cantidad}</span>
             </div>
             <div className="flex justify-center">
-              <span className="text-black font-bold">${item.price}</span>
+              <span className="text-black font-bold">S/ {item.price}</span>
             </div>
             <div className="flex justify-end items-center gap-2">
-              <span className="text-black font-bold">${(item.price * item.cantidad).toFixed(2)}</span>
+              <span className="text-black font-bold">S/ {(item.price * item.cantidad).toFixed(2)}</span>
               <button onClick={() => removeFromCart(item.id)} className="ml-1 text-red-500 hover:text-red-700 font-bold">
                 <FaTrashAlt style={{ color: 'white' }} /> {/* Utilizar el icono del tachito con color blanco */}
               </button>
@@ -49,7 +49,7 @@ function CartModal() {
 
       <div className="flex flex-row justify-center text-white bg-black px-10 py-1 text-xs sm:text-sm font-bold">
         <span>Total: </span>
-        <span className="text-right flex-grow mr-1">${total.toFixed(2)}</span>
+        <span className="text-right flex-grow mr-1">S/ {total.toFixed(2)}</span>
       </div>
       <div>
         <button onClick={removeCart}  className="bg-red-600 text-white w-full font-bold flex flex-row justify-center items-center gap-2 py-1">

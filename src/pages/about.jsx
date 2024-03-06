@@ -1,4 +1,5 @@
 import Image from '../assets/josesanchez.jpg'
+import Image2 from '../assets/juan-carlos.jpg'
 
 const About = () => {
 
@@ -40,7 +41,7 @@ const About = () => {
       </div>
       <div className="p-4 lg:w-1/2">
         <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://scontent.flim1-1.fna.fbcdn.net/v/t39.30808-6/428637820_1777906149397191_8141575816951342953_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=3635dc&_nc_eui2=AeHi-ZvIUHsqyG11AgXrIbGRv91cCFnGTE2_3VwIWcZMTSo8xlij9PvlETttmfjVsk9ddZlpHZBcFueblxIFuqtV&_nc_ohc=JftL-g0iCEUAX9A9pgK&_nc_ht=scontent.flim1-1.fna&oh=00_AfCgzPx7aws70-hnSaVDqFv8wXUd-DYYS-09XWbl-QRp-w&oe=65E380BB" />
+          <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={Image2} />
           <div className="flex-grow sm:pl-8">
             <h2 className="title-font font-medium text-lg text-white">Juan Ruiz</h2>
             <h3 className="text-gray-500 mb-3">Fullstack Developer</h3>

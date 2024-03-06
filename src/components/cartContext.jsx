@@ -6,7 +6,11 @@ export function useCart() {
   return useContext(CartContext);
 }
 
+
+
 export const CartProvider = ({ children }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+  
   const [cartItems, setCartItems] = useState(() => {
     // Intenta obtener el estado inicial de cartItems desde localStorage o, si no hay, inicia con un arreglo vacío
     const localData = localStorage.getItem('cartItems');
@@ -47,7 +51,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, decreaseQuantity }}>
+    <CartContext.Provider value={{ cartItems, totalPrice, setTotalPrice, addToCart, removeFromCart, decreaseQuantity }}>
       {children}
     </CartContext.Provider>
   );
