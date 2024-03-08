@@ -15,13 +15,14 @@ import SignIn from './components/signin'
 import SignUp from './components/signup'
 import Checkout from './components/checkout'
 import ForgotPassword from './components/forgotPassword'
+import { AuthProvider } from './firebase/authContext'
 
 function App() {
 
   return(
     <>  
-      <div className="bg-gray-400 min-h-screen">
 
+        <AuthProvider>
         <CartProvider>
         <Navbar></Navbar>
         <Layaut>
@@ -44,8 +45,8 @@ function App() {
         </Layaut>
         <Footer></Footer>
         </CartProvider>
+        </AuthProvider>
 
-      </div>
     </>
   )
 }

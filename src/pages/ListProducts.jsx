@@ -27,30 +27,44 @@ function ListProducts({ products }) {
 
   const [inputValues, setInputValues] = useState({
     eightDigits: '', // Para el input de 8 dígitos
-    nineDigits: '', // Para el input de 8 dígitos
+    nineDigits: '', // Para el input de 9 dígitos
+    nombreCompleto: '', // Para el input de nombre completo
+    dirección: '', // Para el input de dirección
   });  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     let newValue = value;
 
-    // Validación para el input de 16 dígitos
-    if (name === 'eightDigits' && !(/^\d*$/.test(newValue) && newValue.length <= 8)) {
-      return; // No actualiza el estado si no pasa la validación
+    // Validación para asegurar que el input sea numérico y no exceda el límite de caracteres
+    if (name === 'eightDigits' && value.length <= 8) {
+      setInputValues({
+        ...inputValues,
+        [name]: value.replace(/\D/g, ''), // Elimina cualquier carácter no numérico
+      });
+    } else if (name === 'nineDigits' && value.length <= 9) {
+      setInputValues({
+        ...inputValues,
+        [name]: value.replace(/\D/g, ''),
+      });
+    } else if (name !== 'eightDigits' && name !== 'nineDigits') {
+      // Manejo para otros inputs que no tienen restricción de solo dígitos
+      setInputValues({
+        ...inputValues,
+        [name]: value,
+      });
     }
-    // Validación para el input de 9 dígitos
-    if (name === 'nineDigits' && !(/^\d*$/.test(newValue) && newValue.length <= 9)) {
-      return; // No actualiza el estado si no pasa la validación
-    }
-
-    setInputValues({
-      ...inputValues,
-      [name]: newValue,
-    });
   };
 
   const handleCheckout = () => {
-    // Aquí puedes implementar la lógica para finalizar la compra
+    const { eightDigits, nineDigits, nombreCompleto, dirección } = inputValues;
+    // Verifica que todos los campos estén llenos
+    if (!eightDigits || !nineDigits || !nombreCompleto || !dirección || eightDigits.length < 8 || nineDigits.length < 9) {
+      alert("Por favor, llene todos los campos correctamente.");
+      return;
+    }
+
+    // Si todos los campos están llenos, procede a abrir el modal
     setIsModalOpen(true);
   };
 
@@ -123,8 +137,10 @@ function ListProducts({ products }) {
                   name="nombreCompleto"
                   id="nombreCompleto"
                   autoComplete="given-name"
+                  value={inputValues.nombreCompleto}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mb-6 px-2"
-                />
+                required />
               </div>
             </div>
           <div className="flex flex-row justify-between w-full gap-2">
@@ -139,11 +155,11 @@ function ListProducts({ products }) {
                 <input
                   type="number"
                   name="eightDigits"
-                  id="dni"
+                  id="eightDigits"
                   autoComplete="given-number"
                   value={inputValues.eightDigits}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
-                  onChange={handleChange}/>
+                  onChange={handleChange} required/>
               </div>
             </div>
           
@@ -158,11 +174,11 @@ function ListProducts({ products }) {
                 <input
                   type="number"
                   name="nineDigits"
-                  id="telefono"
+                  id="nineDigits"
                   autoComplete="given-number"
                   value={inputValues.nineDigits}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
-                  onChange={handleChange}/>
+                  onChange={handleChange} required/>
               </div>
             </div>
           </div>
@@ -178,9 +194,11 @@ function ListProducts({ products }) {
                   type="text"
                   name="dirección"
                   id="dirección"
+                  value={inputValues.dirección}
+                  onChange={handleChange}
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
-                />
+                required/>
               </div>
             </div>
 

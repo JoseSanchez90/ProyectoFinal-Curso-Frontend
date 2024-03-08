@@ -3,7 +3,7 @@
 const Layaut = (props) => {
   return (
     <>
-    <section>
+    <section className="bg-gray-400">
         {props.children}
     </section>
     </>

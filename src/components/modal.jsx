@@ -10,6 +10,20 @@ const Modal = ({ isOpen, onClose, children, totalPrice }) => {
   if (!isOpen) return null;
 
   // const { totalPrice } = useCart();
+  const handlePayment = () => {
+    const { sixteenDigits, twoDigits, fourDigits, threeDigits } = inputValues;
+  
+    // Verificar que todos los campos estén llenos
+    if (!sixteenDigits || sixteenDigits.length < 16 || !twoDigits || !fourDigits || !threeDigits) {
+      alert('Por favor, llene todos los datos de la tarjeta correctamente.');
+      return;
+    }
+  
+    // Si todos los campos están llenos, se procede con el pago
+    alert('Su pago se ha realizado con éxito');
+
+    onClose()
+  };
 
   const [inputValues, setInputValues] = useState({
     sixteenDigits: '', // Para el input de 16 dígitos
@@ -86,7 +100,7 @@ const Modal = ({ isOpen, onClose, children, totalPrice }) => {
 
                 <div className="flex justify-between px-6 pb-6">
                 <div className=" bg-secondary-50 ">
-                    <button type="submit" className="bg-lime-600 text-white px-24 py-2 font-bold rounded-md hover:bg-lime-700 focus:outline-none">Pagar</button>
+                    <button type="submit" className="bg-lime-600 text-white px-24 py-2 font-bold rounded-md hover:bg-lime-700 focus:outline-none" onClick={handlePayment}>Pagar</button>
                 </div>
 
                 <div className=" bg-secondary-50 ">

@@ -3,13 +3,14 @@ import BackPass from '../assets/backpass.jpg'
 
 function ForgotPassword() {
 
+
   return (
     
     <section className="bg-cover bg-center bg-no-repeat dark:bg-gray-900 " style={{ backgroundImage: `url(${BackPass})` }}>
         <div className=" max-w-3xl px-12 mx-auto text-center pb-96 pt-44">
         
             <h1 className="text-3xl font-bold text-white">Recuperar contraseña</h1>
-            <p className="max-w-md mx-auto mt-5 text-gray-400 font-semibold">Si olvidaste tu contraseña, debes colocar tu correo electronico aqui abajo y revisar en tus mensajes o spam.</p>
+            <p className="max-w-md mx-auto mt-5 text-gray-300 font-semibold">Si olvidaste tu contraseña coloca tu correo electronico y revisar en tus mensajes o spam.</p>
 
             <div className="flex flex-col mt-8 space-y-3 sm:space-y-0 sm:flex-row sm:justify-center sm:-mx-2">
                 
