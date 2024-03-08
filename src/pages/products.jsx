@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCart } from '../components/cartContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -28,7 +28,7 @@ const Products = () => {
   }, []);
 
   return (
-    <section className="text-gray-400 bg-gray-900 body-font">
+    <section className="text-gray-400 bg-gray-400 body-font">
       <div className="container px-5 pb-24 pt-24 mx-auto">
         <div className="flex flex-wrap -m-4 ">
           {products.map((product) => (
@@ -42,8 +42,9 @@ const Products = () => {
 
                 <div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
 
-                  <span className="font-bold text-gray-800 dark:text-gray-200">${product.price}</span>
-                  <button className="px-4 py-2 text-xs font-semibold text-white uppercase bg-gray-800 rounded hover:bg-gray-950 dark:hover:bg-gray-600 focus:outline-none transition duration-150 ease-in-out transform hover:-translate-y-1 hover:-translate-x-1 shadow-lg hover:shadow border-gray-900 hover:border-gray-700 active:bg-green-600 active:shadow-inner" onClick={(e) => { e.stopPropagation(); addToCart(product); }}>Añadir al carrito</button>
+                  <span className="font-bold text-gray-800 dark:text-gray-200">S/ {Number(product.price).toFixed(2)}</span>
+
+                  <button className=" px-2 py-2 text-xs font-semibold text-white uppercase bg-gray-800 rounded hover:bg-gray-950 dark:hover:bg-gray-600 focus:outline-none transition duration-150 ease-in-out transform hover:-translate-y-1 hover:-translate-x-1 shadow-lg hover:shadow border-gray-900 hover:border-gray-700 active:bg-green-600 active:shadow-inner" onClick={(e) => { e.stopPropagation(); addToCart(product); }}>Añadir al carrito</button>
 
                 </div>
               </div>

@@ -6,10 +6,10 @@ import Card2 from '../assets/credit-card.svg'
 import { useState } from 'react';
 import { useCart } from '../components/cartContext'
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, totalPrice }) => {
   if (!isOpen) return null;
 
-  const { totalPrice } = useCart();
+  // const { totalPrice } = useCart();
 
   const [inputValues, setInputValues] = useState({
     sixteenDigits: '', // Para el input de 16 dígitos
@@ -48,8 +48,8 @@ const Modal = ({ isOpen, onClose, children }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
-      <div className="bg-white p-4 rounded-lg shadow-lg">
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center zeta">
+      <div className="bg-white p-4 rounded-lg shadow-lg ">
         {children}
     
             <div  className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-2">

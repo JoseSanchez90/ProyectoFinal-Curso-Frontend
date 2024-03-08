@@ -4,10 +4,17 @@ import { useCart } from '../components/cartContext';
 import { FaTrashAlt, FaPlus, FaMinus } from 'react-icons/fa'; 
 import Container from '../components/Container'
 import Modal from '../components/modal'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import DraggableMarker from '../components/draggable';
 
 function ListProducts({ products }) {
   const { removeFromCart, addToCart, decreaseQuantity, cartItems } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const open = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  const center = {
+    lat: -12.0630198,
+    lng: -77.0384351,
+  }
 
   const totalCompra = products.reduce(
     (suma, product) => suma + product.price * product.cantidad,
@@ -176,6 +183,20 @@ function ListProducts({ products }) {
                 />
               </div>
             </div>
+
+            <h6 className="text-sm text-red-600 mt-6 font-bold italic">Por favor selecciona tu ubicacion</h6>
+            <div className="mt-1" id="map" style={{height: "300px", width: "100%", border: "1px solid black"}}>
+            <MapContainer center={center} zoom={15}>
+              <TileLayer
+                attribution={open}
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <DraggableMarker />
+              {/* <Marker position={[-12.0630198, -77.0384351]}>
+              </Marker> */}
+          </MapContainer>
+            </div>
+
           </form>
         </div>
 
@@ -189,7 +210,7 @@ function ListProducts({ products }) {
           <p className="text-gray-400">No hay productos en el carrito.</p>
         </div>
       ) }
-       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+       <Modal isOpen={isModalOpen} onClose={handleCloseModal} totalPrice={totalCompra}>
         
       </Modal>
       
