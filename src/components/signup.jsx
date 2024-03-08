@@ -28,7 +28,7 @@ function SignUp() {
         }
 
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, name, email, password);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             // Actualiza el perfil para añadir el displayName
             await updateProfile(userCredential.user, {
                 displayName: name,
@@ -39,7 +39,6 @@ function SignUp() {
                 replace: true,
                 state: {
                     logged: true,
-                    email: displayName,
                 }
              });
         } catch (error) {
