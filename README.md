@@ -1,8 +1,23 @@
-# React + Vite
+# Pagina web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pagina realizada para la exposicion de mi proyecto final de mi bootcamp Desarrollo Web FrontEnd.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías  
+- React.js  
+- Vite  
+- TailwindCSS
+- Firebase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📥 Instalación  
+1. Clona el repositorio:  
+
+   git clone https://github.com/JoseSanchez90/ProyectoFinal-Curso-Frontend.git
+
+2. Instala dependencias:
+
+   npm install
+
+3. Ejecuta el Proyecto:
+
+   npm run dev
+
